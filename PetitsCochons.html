@@ -20,7 +20,6 @@
             background-color: #f0f0f0;
             font-family: 'Arial', sans-serif;
             text-align: center;
-            overflow: hidden;
         }
 
         #image-container {
@@ -29,67 +28,74 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
         }
 
         #image {
             width: 80%;
-            height: 800%;
+            height: auto;
             object-fit: cover;
         }
 
         #text-box {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             background-color: rgba(255, 255, 255, 0.9);
             border-top: 2px solid #333;
             padding: 20px;
+            width: 100%;
             text-align: center;
         }
 
-        #buttons {
+        #buttons, #feedback-buttons {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-top: 10px;
         }
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            background-color: #333;
-            color: #fff;
+        .feedback-img {
+            width: 100px;
+            height: 100px;
             cursor: pointer;
-            font-size: 16px;
+            border-radius: 10px;
+            transition: transform 0.2s;
         }
 
-        button:hover {
-            background-color: #555;
+        .feedback-img:hover {
+            transform: scale(1.1);
+        }
+
+        #end-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
     </style>
-</head>
 </head>
 <body>
     <img id="image" src="" alt="Émotion">
     <div id="text-box">
         <div id="story-text"></div>
-        <div id="button-container">
-            <button class="button" id="back-btn">Revenir</button>
-            <button class="button" id="continue-btn">Continuer</button>
+        <div id="buttons">
+            <button id="back-btn">Revenir</button>
+            <button id="continue-btn">Continuer</button>
         </div>
     </div>
 
     <div id="end-screen">
-        FIN
-        <button class="button" id="home-btn">Accueil</button>
+        <h2>FIN</h2>
+        <p>Comment as-tu trouvé l'histoire ?</p>
+        <div id="feedback-buttons">
+            <img src="images/triste.jpg" class="feedback-img" data-feedback="Triste" alt="Triste">
+            <img src="images/furieux.jpg" class="feedback-img" data-feedback="Mitigé" alt="Mitigé">
+            <img src="images/joie.jpg" class="feedback-img" data-feedback="Content" alt="Content">
+        </div>
+        <button id="home-btn">Accueil</button>
     </div>
 
     <script>
         const passages = [
-            { emotion: 'Neutre', text: "Il était une fois 3 petits cochons qui vivaient avec leur maman dans une petite maison. Un jour, leur mère les réunit et leur dit : \"Mes enfants, vous avez beaucoup grandi, et notre maison est bien trop petite pour nous maintenant. Demain, vous partirez pour construire chacun votre maison. Et surtout, faites bien attention au grand méchant loup\"." },
+        { emotion: 'Neutre', text: "Il était une fois 3 petits cochons qui vivaient avec leur maman dans une petite maison. Un jour, leur mère les réunit et leur dit : \"Mes enfants, vous avez beaucoup grandi, et notre maison est bien trop petite pour nous maintenant. Demain, vous partirez pour construire chacun votre maison. Et surtout, faites bien attention au grand méchant loup\"." },
             { emotion: 'Joyeux', text: "Le lendemain, ils s'embrassèrent tous et partirent. Nouf Nouf, le plus jeune et le plus paresseux, rencontra un paysan et lui demanda un peu de paille pour construire sa maison en quelques minutes. Nif Nif, le second, un peu moins paresseux, demanda du bois à un bûcheron et se construisit une maison en bois en quelques heures. Naf Naf, l'aîné et le plus travailleur, acheta des briques à un maçon et se construisit une solide maison de brique en plusieurs jours." },
             { emotion: 'Colere', text: "Ses frères qui avait terminé bien avant lui, se moquaient de lui en rigolant et en jouant de la musique devant lui. Mais Naf Naf leur reprochait leur paresse et leur disait \"Nous verrons bien quand le loup viendra! Rira bien qui rira le dernier!\"" },
             { emotion: 'Peur', text: "Quelques jours plus tard, un horrible et énorme grand méchant loup sortit de la forêt. Il vit d’abord la maison de Nouf Nouf et cria: \“Petit cochon, ouvre-moi ta porte ou je soufflerai, et ta maison s’envolera!\” \“Non, jamais de la vie\” dit Nouf Nouf en tremblant." },
@@ -137,7 +143,12 @@
             document.getElementById('end-screen').style.display = 'none';
         });
 
-        // Afficher le premier passage au chargement
+        document.querySelectorAll('.feedback-img').forEach(img => {
+            img.addEventListener('click', () => {
+                alert(`Merci pour ton avis : ${img.dataset.feedback}`);
+            });
+        });
+
         displayPassage(currentIndex);
     </script>
 </body>
