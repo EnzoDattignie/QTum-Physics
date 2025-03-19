@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecteur d'Histoire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body class="page-zoom">
+    <header>
+        <h1>Bienvenue dans le Lecteur d'Histoire</h1>
+    </header>
+    
+
+
+    <!-- Barre de progression -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- Zone d'affichage en plein écran -->
+    <div id="image-container">
+        <img id="image" src="" alt="Illustration">
+    </div>
+
+    <div id="text-box">
+        <div id="story-text"></div>
+    </div>
+
+    <!-- Boutons de navigation -->
+    <div id="button-container">
+        <button id="back-btn">⬅ Précédent</button>
+        <button id="play-btn">▶ Lecture</button>
+        <button id="pause-btn" style="display:none;">⏸ Pause</button>
+        <button id="continue-btn">Suivant ➡</button>
+    </div>
+
+    <!-- Écran de fin -->
+    <div id="end-screen" style="display: none;">
+        <h1>FIN</h1>
+        <button id="home-btn">🏠 Retour à l'Accueil</button>
+    </div>
+
+    <script>
+        class StoryReader {
+            constructor(passages) {
+                this.passages = passages;
+                this.currentIndex = 0;
+                this.autoPlayInterval = null;
+                this.init();
+            }
+
+            init() {
+                this.cacheElements();
+                this.bindEvents();
+                this.displayPassage(this.currentIndex);
+            }
+
+            cacheElements() {
+                this.imageElement = document.getElementById('image');
+                this.storyTextElement = document.getElementById('story-text');
+                this.progressBar = document.getElementById('progress-bar');
+                this.imageContainer = document.getElementById('image-container');
+                this.textBox = document.getElementById('text-box');
+                this.endScreen = document.getElementById('end-screen');
+                this.buttons = {
+                    back: document.getElementById('back-btn'),
+                    play: document.getElementById('play-btn'),
+                    pause: document.getElementById('pause-btn'),
+                    next: document.getElementById('continue-btn'),
+                    home: document.getElementById('home-btn')
+                };
+            }
+
+            bindEvents() {
+                this.buttons.next.addEventListener('click', () => this.nextPassage());
+                this.buttons.back.addEventListener('click', () => this.prevPassage());
+                this.buttons.play.addEventListener('click', () => this.startAutoPlay());
+                this.buttons.pause.addEventListener('click', () => this.stopAutoPlay());
+                this.buttons.home.addEventListener('click', () => this.resetStory());
+            }
+
+            displayPassage(index) {
+                if (index < 0 || index >= this.passages.length) return;
+                const passage = this.passages[index];
+                this.imageElement.src = passage.image;
+                this.imageElement.alt = `Illustration: ${passage.text}`;
+                this.storyTextElement.textContent = passage.text;
+                this.updateProgressBar();
+            }
+
+            updateProgressBar() {
+                const progress = ((this.currentIndex + 1) / this.passages.length) * 100;
+                this.progressBar.style.width = `${progress}%`;
+            }
+
+            nextPassage() {
+                if (this.currentIndex < this.passages.length - 1) {
+                    this.currentIndex++;
+                    this.displayPassage(this.currentIndex);
+                } else {
+                    this.showEndScreen();
+                }
+            }
+
+            prevPassage() {
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
+                    this.displayPassage(this.currentIndex);
+                }
+            }
+
+            startAutoPlay() {
+                this.buttons.play.style.display = 'none';
+                this.buttons.pause.style.display = 'inline-block';
+
+                this.autoPlayInterval = setInterval(() => {
+                    if (this.currentIndex < this.passages.length - 1) {
+                        this.nextPassage();
+                    } else {
+                        this.stopAutoPlay();
+                    }
+                }, 3000);
+            }
+
+            stopAutoPlay() {
+                clearInterval(this.autoPlayInterval);
+                this.buttons.pause.style.display = 'none';
+                this.buttons.play.style.display = 'inline-block';
+            }
+
+            showEndScreen() {
+                this.imageContainer.style.display = 'none';
+                this.textBox.style.display = 'none';
+                this.endScreen.style.display = 'block';
+            }
+
+            resetStory() {
+                this.currentIndex = 0;
+                this.displayPassage(this.currentIndex);
+                this.imageContainer.style.display = 'block';
+                this.textBox.style.display = 'block';
+                this.endScreen.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const passages = [
+                { image: "Vent.jpg", text: "Un vent fort soufflait sur la forêt." },
+                { image: "Peur.jpg", text: "Le petit garçon sentit une étrange présence dans la nuit." },
+                { image: "Neutre.jpg", text: "Tout était calme et paisible dans le village." },
+                { image: "Joyeux.jpg", text: "Les enfants riaient et jouaient ensemble dans le parc." },
+                { image: "Colere.jpg", text: "Le roi était en colère contre les chevaliers." }
+            ];
+            new StoryReader(passages);
+        });
+    </script>
+<body class="page-zoom">
+   
+</body>
+</body>
+</html>
