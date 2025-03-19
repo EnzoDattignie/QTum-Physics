@@ -17,7 +17,8 @@
             align-items: center;
             justify-content: flex-start;
             height: 100vh;
-            background-color: #f0f0f0;
+            background: url('images/fond.jpeg') no-repeat center center fixed;
+            background-size: cover;
             font-family: 'Arial', sans-serif;
             text-align: center;
         }
@@ -28,35 +29,59 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         #image {
-            width: 80%;
+            width: 70%;
             height: auto;
             object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        #image:hover {
+            transform: scale(1.05);
         }
 
         #text-box {
             background-color: rgba(255, 255, 255, 0.9);
-            border-top: 2px solid #333;
+            border-top: 4px solid #8b4513;
             padding: 20px;
-            width: 100%;
-            text-align: center;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
         }
 
         #buttons, #feedback-buttons {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a0522d;
         }
 
         .feedback-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             cursor: pointer;
             border-radius: 10px;
-            transition: transform 0.2s;
+            transition: transform 0.2s ease;
         }
 
         .feedback-img:hover {
@@ -73,7 +98,9 @@
     </style>
 </head>
 <body>
-    <img id="image" src="" alt="Émotion">
+    <div id="image-container">
+        <img id="image" src="" alt="Émotion">
+    </div>
     <div id="text-box">
         <div id="story-text"></div>
         <div id="buttons">
@@ -94,20 +121,54 @@
     </div>
 
     <script>
-        const passages = [
-        { emotion: 'Neutre', text: "Il était une fois 3 petits cochons qui vivaient avec leur maman dans une petite maison. Un jour, leur mère les réunit et leur dit : \"Mes enfants, vous avez beaucoup grandi, et notre maison est bien trop petite pour nous maintenant. Demain, vous partirez pour construire chacun votre maison. Et surtout, faites bien attention au grand méchant loup\"." },
-            { emotion: 'Joyeux', text: "Le lendemain, ils s'embrassèrent tous et partirent. Nouf Nouf, le plus jeune et le plus paresseux, rencontra un paysan et lui demanda un peu de paille pour construire sa maison en quelques minutes. Nif Nif, le second, un peu moins paresseux, demanda du bois à un bûcheron et se construisit une maison en bois en quelques heures. Naf Naf, l'aîné et le plus travailleur, acheta des briques à un maçon et se construisit une solide maison de brique en plusieurs jours." },
-            { emotion: 'Colere', text: "Ses frères qui avait terminé bien avant lui, se moquaient de lui en rigolant et en jouant de la musique devant lui. Mais Naf Naf leur reprochait leur paresse et leur disait \"Nous verrons bien quand le loup viendra! Rira bien qui rira le dernier!\"" },
-            { emotion: 'Peur', text: "Quelques jours plus tard, un horrible et énorme grand méchant loup sortit de la forêt. Il vit d’abord la maison de Nouf Nouf et cria: \“Petit cochon, ouvre-moi ta porte ou je soufflerai, et ta maison s’envolera!\” \“Non, jamais de la vie\” dit Nouf Nouf en tremblant." },
-            { emotion: 'Vent', text: "Alors le grand méchant loup remplit ses poumons et commença à souffler de toutes ses forces:\“Pfffffffffff Hoooo Pfffffffffffff!\” En quelques secondes, la maison s’envola." },
-            { emotion: 'Peur', text: "Nouf Nouf, se mit à courir de toutes ses forces vers la cabane de son frère Nif Nif. Nif Nif lui ouvrit la porte juste à temps car ils entendirent rugir la voix du loup:\“Petits cochons! Petits cochons! Ouvrez-moi la porte!\” \“Non non!\” S’exclama Nif Nif. \“Nous ne t’ouvrirons pas!\” Le loup répondit: \“Puisque c’est comme ça, je vais souffler, souffler, souffler, et votre maison s’envolera.\”" },
-            { emotion: 'Vent', text: "Alors il gonfla sa poitrine et se mit à souffler de toutes ses forces:\“Pfffffffffff Hoooo Pfffffffffffff!\” La cabane resista un peu mais s’envola bien vite" },
-            { emotion: 'Peur', text: "Nouf Nouf et Nif Nif se mirent à courir, courir, courir, en direction de la maison de briques de leur frère Naf Naf.Naf Naf les laissa entrer juste à temps. De grands coups retentirent à la porte. \“Boum Boum Boum\". C’était le loup.\«Petits cochons, petits cochons! Ouvrez-moi la porte ou je soufflerai, soufflerai, soufflerai, et votre maison s’envolera.\” \“Non\” dit Naf Naf, \“Nous ne t’ouvrirons pas\”"},
-            { emotion: 'Vent', text: "Alors le Loup souffla de toutes ses forces: \“Pffffffffffffffffffffffffffffffffffffffffffffffffff!\” La maison ne bougea pas d’un pouce. Enragé, il souffla à nouveau:\“Pffffffffffffffffffffffffffffffffffffffffffffffffff!\” Mais la maison resista, solide comme un roc. Il souffla, souffla et souffla encore jusqu’à perdre haleine.\“Hufufufufufu\”"},
-            { emotion: 'Peur', text: "À bout de souffle, le grand méchant loup, chercha une autre idée pour entrer dans la maison. Il aperçut la cheminée sur le toit, commença à escalader le mur pour y descendre et attraper son repas."},
-            { emotion: 'Joyeux', text: "Heureusement, Naf Naf, avait entendu les pas du loup sur le toit, et il avait mis rapidement une grande marmite d’eau chaude à bouillir sur le feu. Lorsque le grand méchant loup descendit par le conduit de la cheminée, il se brûla tellement fort, qu’il sauta à plusieurs mètres en passant par la cheminée en sens inverse. Il courut, courut, courut jusqu’à disparaître complètement. Et on ne le revit plus jamais dans la région." },
-            { emotion: 'Joyeux', text: "Les trois petits cochons sortirent tout heureux de la maison de briques et se mirent à danser en rond en chantant:\”Qui a peur du grand méchant loup, c’est peut-être vous? C’est pas nous!\”Naf Naf put enfin se joindre à la flûte de Nouf Nouf et au violon de Nif Nif en les accompagnant gaiement sur son piano. Finalement, il invita ses frères à vivre dans sa maison en attendant qu’ils construisent chacun leur propre maison de brique."}
-        ];
+        const passages = [ 
+    { emotion: 'Neutre', text: "Il était une fois 3 petits cochons qui vivaient avec leur maman dans une petite maison. Un jour, leur mère les réunit et leur dit : \"Mes enfants, vous avez beaucoup grandi, et notre maison est bien trop petite pour nous maintenant. Demain, vous partirez pour construire chacun votre maison. Et surtout, faites bien attention au grand méchant loup\"." },
+
+    { emotion: 'Joyeux', text: "Le lendemain, ils s'embrassèrent tous et partirent chacun de leur côté à la recherche de matériaux pour leur future maison." },
+
+    { emotion: 'Neutre', text: "Nouf Nouf, le plus jeune et le plus paresseux, rencontra un paysan et lui demanda un peu de paille. Rapidement, il se construisit une maison en quelques minutes et s'y installa satisfait de son travail." },
+
+    { emotion: 'Neutre', text: "Nif Nif, un peu moins paresseux, croisa un bûcheron à qui il demanda du bois. Il travailla un peu plus longtemps que son frère, et en quelques heures, il avait terminé sa maison en bois." },
+
+    { emotion: 'Neutre', text: "Naf Naf, l’aîné et le plus travailleur, acheta des briques à un maçon et se mit à construire une maison bien solide. Il travailla dur pendant plusieurs jours, s'assurant que sa maison pourrait résister à tout danger." },
+
+    { emotion: 'Colere', text: "Ses frères, qui avaient terminé bien avant lui, se moquaient de lui en rigolant et en jouant de la musique devant lui. Mais Naf Naf leur reprochait leur paresse et leur disait \"Nous verrons bien quand le loup viendra! Rira bien qui rira le dernier!\"" },
+
+    { emotion: 'Peur', text: "Quelques jours plus tard, un horrible et énorme grand méchant loup sortit de la forêt. Il marchait lentement, ses yeux brillaient de méchanceté et son ventre gargouillait de faim. C'est alors qu'il aperçut la maison de paille de Nouf Nouf." },
+
+    { emotion: 'Peur', text: "Le loup s'approcha de la petite maison fragile et gronda : \"Petit cochon, ouvre-moi ta porte ou je soufflerai, et ta maison s’envolera!\" \“Non, jamais de la vie!\” répondit Nouf Nouf, la voix tremblante." },
+
+    { emotion: 'Vent', text: "Le grand méchant loup sourit et prit une grande inspiration. Il remplit ses poumons d'air et souffla de toutes ses forces : \"Pfffffffffff Hoooo Pfffffffffffff!\"." },
+
+    { emotion: 'Vent', text: "La paille se mit à voler dans tous les sens, les murs tremblèrent et, en quelques secondes, la maison s’effondra complètement, ne laissant qu’un tas de brindilles éparpillées au sol." },
+
+    { emotion: 'Peur', text: "Nouf Nouf, paniqué, s'élança en courant vers la maison en bois de son frère Nif Nif. Derrière lui, le loup lécha ses babines et se mit à poursuivre le petit cochon en ricanant." },
+
+    { emotion: 'Peur', text: "Essoufflé, Nouf Nouf arriva devant la cabane en bois et tambourina à la porte : \"Nif Nif, laisse-moi entrer vite! Le loup me poursuit!\". Son frère ouvrit juste à temps et referma la porte derrière lui." },
+
+    { emotion: 'Peur', text: "Le loup, arrivé devant la maison en bois, posa ses griffes sur la porte et gronda : \"Petits cochons! Petits cochons! Ouvrez-moi la porte!\" \“Non non!\” S’exclama Nif Nif. \"Nous ne t’ouvrirons pas!\"." },
+
+    { emotion: 'Vent', text: "Alors le loup gonfla sa poitrine et se mit à souffler avec encore plus de force : \"Pfffffffffff Hoooo Pfffffffffffff!\". La cabane résista un instant, mais bientôt, les planches se détachèrent et la maison s’envola à son tour." },
+
+    { emotion: 'Peur', text: "Nouf Nouf et Nif Nif hurlèrent et coururent en direction de la maison de briques de leur frère Naf Naf. Derrière eux, le loup, furieux, bondit et les poursuivit à toute vitesse." },
+
+    { emotion: 'Peur', text: "Naf Naf les laissa entrer et referma immédiatement la porte. De grands coups retentirent : \"Boum Boum Boum\". C’était le loup. \"Petits cochons, petits cochons! Ouvrez-moi la porte ou je soufflerai, soufflerai, soufflerai, et votre maison s’envolera.\" \"Non\" dit Naf Naf, \"Nous ne t’ouvrirons pas\"" },
+
+    { emotion: 'Vent', text: "Le loup souffla alors avec toute la force qu’il avait : \"Pffffffffffffffffffffffffffffffffffffffffffffffffff!\" La maison de briques ne bougea pas d’un centimètre." },
+
+    { emotion: 'Vent', text: "Le loup, rouge de colère, recommença : \"Pffffffffffffffffffffffffffffffffffffffffffffffffff!\" Mais rien ne se passa. Il souffla, souffla encore, jusqu’à en perdre haleine. \"Hufufufufufu\"." },
+
+    { emotion: 'Peur', text: "Épuisé, mais toujours aussi rusé, le loup leva les yeux et aperçut la cheminée. \"Aha! Si je ne peux pas entrer par la porte, je passerai par là!\" Il commença à escalader le mur de briques." },
+
+    { emotion: 'Joyeux', text: "Mais Naf Naf, malin et prévoyant, entendit les pas du loup sur le toit. Il se précipita vers la cheminée et plaça une énorme marmite d’eau bouillante sur le feu." },
+
+    { emotion: 'Peur', text: "Le loup, persuadé de sa victoire, glissa dans le conduit de la cheminée. Mais dès qu’il atteignit le bas, il plongea directement dans l’eau bouillante! \"AOUUUUUUUH!\" hurla-t-il en bondissant hors de la marmite." },
+
+    { emotion: 'Joyeux', text: "Brûlé et terrifié, le loup s’enfuit en courant à toute vitesse. Il ne s’arrêta pas avant d’avoir quitté la région pour toujours. Et depuis ce jour, plus aucun loup n’osa s’approcher des maisons des trois petits cochons." },
+
+    { emotion: 'Joyeux', text: "Les trois petits cochons sortirent tout heureux de la maison de briques et se mirent à danser en rond en chantant: \"Qui a peur du grand méchant loup, c’est peut-être vous? C’est pas nous!\" Naf Naf put enfin se joindre à la flûte de Nouf Nouf et au violon de Nif Nif en les accompagnant gaiement sur son piano. Finalement, il invita ses frères à vivre dans sa maison en attendant qu’ils construisent chacun leur propre maison de brique." }
+];
+
 
         let currentIndex = 0;
 
@@ -122,7 +183,7 @@
             if (currentIndex < passages.length) {
                 displayPassage(currentIndex);
             } else {
-                document.getElementById('image').style.display = 'none';
+                document.getElementById('image-container').style.display = 'none';
                 document.getElementById('text-box').style.display = 'none';
                 document.getElementById('end-screen').style.display = 'flex';
             }
@@ -138,7 +199,7 @@
         document.getElementById('home-btn').addEventListener('click', () => {
             currentIndex = 0;
             displayPassage(currentIndex);
-            document.getElementById('image').style.display = 'block';
+            document.getElementById('image-container').style.display = 'flex';
             document.getElementById('text-box').style.display = 'block';
             document.getElementById('end-screen').style.display = 'none';
         });
