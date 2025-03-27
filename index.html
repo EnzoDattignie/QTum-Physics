@@ -3,142 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les Trois Petits Cochons</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            background-color: #f0f0f0;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        #image-container {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        #image {
-            width: 80%;
-            height: 800%;
-            object-fit: cover;
-        }
-
-        #text-box {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-top: 2px solid #333;
-            padding: 20px;
-            text-align: center;
-        }
-
-        #buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-    </style>
+    <title>Lecteur d'Histoire</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-</head>
-<body>
-    <img id="image" src="" alt="Émotion">
+<body class="page-zoom">
+
+    <header>
+        <h1>Bienvenue dans le Lecteur d'Histoire</h1>
+    </header>
+
+    <!-- Barre de progression -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- Zone d'affichage en plein écran -->
+    <div id="image-container">
+        <img id="image" src="" alt="Illustration">
+    </div>
+
     <div id="text-box">
         <div id="story-text"></div>
-        <div id="button-container">
-            <button class="button" id="back-btn">Revenir</button>
-            <button class="button" id="continue-btn">Continuer</button>
+    </div>
+
+    <!-- Boutons de navigation -->
+    <div id="button-container">
+        <button id="back-btn">⬅ Précédent</button>
+        <button id="play-btn">▶ Lecture</button>
+        <button id="pause-btn" style="display:none;">⏸ Pause</button>
+        <button id="continue-btn">Suivant ➡</button>
+    </div>
+
+    <!-- Écran de fin -->
+    <div id="end-screen">
+        <h1>FIN</h1>
+        <button id="home-btn" onclick="location.reload()">🏠 Retour à l'Accueil</button>
+
+        <!-- Section de notation -->
+        <div id="rating-section">
+            <h2>Quelle émotion ressens-tu après cette histoire ?</h2>
+            <div id="emoji-rating">
+                <button class="emoji-btn" data-emotion="heureux" title="Heureux">😊</button>
+                <button class="emoji-btn" data-emotion="neutre" title="Neutre">😐</button>
+                <button class="emoji-btn" data-emotion="triste" title="Triste">😢</button>
+                <button class="emoji-btn" data-emotion="peur" title="Peur">😱</button>
+                <button class="emoji-btn" data-emotion="colere" title="Colère">😡</button>
+            </div>
+            <p id="rating-message"></p>
         </div>
     </div>
 
-    <div id="end-screen">
-        FIN
-        <button class="button" id="home-btn">Accueil</button>
-    </div>
-
-    <script>
-        const passages = [
-            { emotion: 'Neutre', text: "Il était une fois 3 petits cochons qui vivaient avec leur maman dans une petite maison. Un jour, leur mère les réunit et leur dit : \"Mes enfants, vous avez beaucoup grandi, et notre maison est bien trop petite pour nous maintenant. Demain, vous partirez pour construire chacun votre maison. Et surtout, faites bien attention au grand méchant loup\"." },
-            { emotion: 'Joyeux', text: "Le lendemain, ils s'embrassèrent tous et partirent. Nouf Nouf, le plus jeune et le plus paresseux, rencontra un paysan et lui demanda un peu de paille pour construire sa maison en quelques minutes. Nif Nif, le second, un peu moins paresseux, demanda du bois à un bûcheron et se construisit une maison en bois en quelques heures. Naf Naf, l'aîné et le plus travailleur, acheta des briques à un maçon et se construisit une solide maison de brique en plusieurs jours." },
-            { emotion: 'Colere', text: "Ses frères qui avait terminé bien avant lui, se moquaient de lui en rigolant et en jouant de la musique devant lui. Mais Naf Naf leur reprochait leur paresse et leur disait \"Nous verrons bien quand le loup viendra! Rira bien qui rira le dernier!\"" },
-            { emotion: 'Peur', text: "Quelques jours plus tard, un horrible et énorme grand méchant loup sortit de la forêt. Il vit d’abord la maison de Nouf Nouf et cria: \“Petit cochon, ouvre-moi ta porte ou je soufflerai, et ta maison s’envolera!\” \“Non, jamais de la vie\” dit Nouf Nouf en tremblant." },
-            { emotion: 'Vent', text: "Alors le grand méchant loup remplit ses poumons et commença à souffler de toutes ses forces:\“Pfffffffffff Hoooo Pfffffffffffff!\” En quelques secondes, la maison s’envola." },
-            { emotion: 'Peur', text: "Nouf Nouf, se mit à courir de toutes ses forces vers la cabane de son frère Nif Nif. Nif Nif lui ouvrit la porte juste à temps car ils entendirent rugir la voix du loup:\“Petits cochons! Petits cochons! Ouvrez-moi la porte!\” \“Non non!\” S’exclama Nif Nif. \“Nous ne t’ouvrirons pas!\” Le loup répondit: \“Puisque c’est comme ça, je vais souffler, souffler, souffler, et votre maison s’envolera.\”" },
-            { emotion: 'Vent', text: "Alors il gonfla sa poitrine et se mit à souffler de toutes ses forces:\“Pfffffffffff Hoooo Pfffffffffffff!\” La cabane resista un peu mais s’envola bien vite" },
-            { emotion: 'Peur', text: "Nouf Nouf et Nif Nif se mirent à courir, courir, courir, en direction de la maison de briques de leur frère Naf Naf.Naf Naf les laissa entrer juste à temps. De grands coups retentirent à la porte. \“Boum Boum Boum\". C’était le loup.\«Petits cochons, petits cochons! Ouvrez-moi la porte ou je soufflerai, soufflerai, soufflerai, et votre maison s’envolera.\” \“Non\” dit Naf Naf, \“Nous ne t’ouvrirons pas\”"},
-            { emotion: 'Vent', text: "Alors le Loup souffla de toutes ses forces: \“Pffffffffffffffffffffffffffffffffffffffffffffffffff!\” La maison ne bougea pas d’un pouce. Enragé, il souffla à nouveau:\“Pffffffffffffffffffffffffffffffffffffffffffffffffff!\” Mais la maison resista, solide comme un roc. Il souffla, souffla et souffla encore jusqu’à perdre haleine.\“Hufufufufufu\”"},
-            { emotion: 'Peur', text: "À bout de souffle, le grand méchant loup, chercha une autre idée pour entrer dans la maison. Il aperçut la cheminée sur le toit, commença à escalader le mur pour y descendre et attraper son repas."},
-            { emotion: 'Joyeux', text: "Heureusement, Naf Naf, avait entendu les pas du loup sur le toit, et il avait mis rapidement une grande marmite d’eau chaude à bouillir sur le feu. Lorsque le grand méchant loup descendit par le conduit de la cheminée, il se brûla tellement fort, qu’il sauta à plusieurs mètres en passant par la cheminée en sens inverse. Il courut, courut, courut jusqu’à disparaître complètement. Et on ne le revit plus jamais dans la région." },
-            { emotion: 'Joyeux', text: "Les trois petits cochons sortirent tout heureux de la maison de briques et se mirent à danser en rond en chantant:\”Qui a peur du grand méchant loup, c’est peut-être vous? C’est pas nous!\”Naf Naf put enfin se joindre à la flûte de Nouf Nouf et au violon de Nif Nif en les accompagnant gaiement sur son piano. Finalement, il invita ses frères à vivre dans sa maison en attendant qu’ils construisent chacun leur propre maison de brique."}
-        ];
-
-        let currentIndex = 0;
-
-        function displayPassage(index) {
-            const passage = passages[index];
-            document.getElementById('image').src = `images/${passage.emotion}.jpg`;
-            document.getElementById('story-text').textContent = passage.text;
-        }
-
-        document.getElementById('continue-btn').addEventListener('click', () => {
-            currentIndex++;
-            if (currentIndex < passages.length) {
-                displayPassage(currentIndex);
-            } else {
-                document.getElementById('image').style.display = 'none';
-                document.getElementById('text-box').style.display = 'none';
-                document.getElementById('end-screen').style.display = 'flex';
-            }
-        });
-
-        document.getElementById('back-btn').addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                displayPassage(currentIndex);
-            }
-        });
-
-        document.getElementById('home-btn').addEventListener('click', () => {
-            currentIndex = 0;
-            displayPassage(currentIndex);
-            document.getElementById('image').style.display = 'block';
-            document.getElementById('text-box').style.display = 'block';
-            document.getElementById('end-screen').style.display = 'none';
-        });
-
-        // Afficher le premier passage au chargement
-        displayPassage(currentIndex);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
