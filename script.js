@@ -6,11 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('bg-' + savedEmotion);
     }
 
-    let Joyeux = "Images/Joyeux.jpg"
-    let Neutre = "Images/Neutre.jpg"
-    let Colere = "Images/Colere.jpg"
-    let Peur = "Images/Peur.jpg"
-    let Vent = "Images/Vent.jpg"
+
 
     // 2. Définir le contenu de l'histoire et les images associées à chaque page
     const storyPages = [
@@ -28,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         "Les trois petits cochons sortirent tout heureux de la maison de briques et se mirent à danser en rond en chantant:\”Qui a peur du grand méchant loup, c’est peut-être vous? C’est pas nous!\”Naf Naf put enfin se joindre à la flûte de Nouf Nouf et au violon de Nif Nif en les accompagnant gaiement sur son piano. Finalement, il invita ses frères à vivre dans sa maison en attendant qu’ils construisent chacun leur propre maison de brique."
     ];
 
+    let Joyeux = "Joyeux.jpg"
+    let Neutre = "Neutre.jpg"
+    let Colere = "Colere.jpg"
+    let Peur = "Peur.jpg"
+    let Vent = "Vent.jpg"
+    
     const images = [
         Neutre,
         Joyeux,
