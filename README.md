@@ -4,7 +4,7 @@ QT-Physics Interactive Website
 
 ## Description
 
-This project was developed as part of the HAI727I module at the Faculty of Science, University of Montpellier.
+This project was developed as part of the HAI810I module at the Faculty of Science, University of Montpellier.
 It is an interactive website that allows users to play a story told by QT robot. It is aimed for children. This website was conceived almost integrally by chatgpt.
 
 The project is based on HTML, CSS, and JavaScript and consists of three main files:
