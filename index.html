@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecteur d'Histoire</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecteur d'Histoire</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-zoom">
 
-    <header>
-        <h1>Bienvenue dans le Lecteur d'Histoire</h1>
-    </header>
+  <header>
+    <h1>Bienvenue dans le Lecteur d'Histoire</h1>
+  </header>
 
-    <!-- Barre de progression -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
+  <!-- Sélecteur d'histoire -->
+  <div id="story-selector" class="modal">
+      <h2>Choisissez une histoire</h2>
+      <div id="story-options">
+          <button class="story-btn" data-story="story1">Histoire 1</button>
+          <button class="story-btn" data-story="story2">Histoire 2</button>
+      </div>
+  </div>
 
-    <!-- Zone d'affichage en plein écran -->
-    <div id="image-container">
-        <img id="image" src="" alt="Illustration">
-    </div>
+  <!-- Barre de progression -->
+  <div id="progress-container">
+      <div id="progress-bar"></div>
+  </div>
 
-    <div id="text-box">
-        <div id="story-text"></div>
-    </div>
+  <!-- Zone d'affichage en plein écran -->
+  <div id="image-container">
+      <img id="image" src="" alt="Illustration">
+  </div>
 
-    <!-- Boutons de navigation -->
-    <div id="button-container">
-        <button id="back-btn">⬅ Précédent</button>
-        <button id="play-btn">▶ Lecture</button>
-        <button id="pause-btn" style="display:none;">⏸ Pause</button>
-        <button id="continue-btn">Suivant ➡</button>
-    </div>
+  <div id="text-box">
+      <div id="story-text"></div>
+  </div>
 
-    <!-- Écran de fin -->
-    <div id="end-screen">
-        <h1>FIN</h1>
-        <button id="home-btn" onclick="location.reload()">🏠 Retour à l'Accueil</button>
+  <!-- Boutons de navigation -->
+  <div id="button-container">
+      <button id="back-btn">⬅ Précédent</button>
+      <button id="play-btn">▶ Lecture</button>
+      <button id="pause-btn" style="display:none;">⏸ Pause</button>
+      <button id="continue-btn">Suivant ➡</button>
+  </div>
 
-        <!-- Section de notation -->
-        <div id="rating-section">
-            <h2>Quelle émotion ressens-tu après cette histoire ?</h2>
-            <div id="emoji-rating">
-                <button class="emoji-btn" data-emotion="heureux" title="Heureux">😊</button>
-                <button class="emoji-btn" data-emotion="neutre" title="Neutre">😐</button>
-                <button class="emoji-btn" data-emotion="triste" title="Triste">😢</button>
-                <button class="emoji-btn" data-emotion="peur" title="Peur">😱</button>
-                <button class="emoji-btn" data-emotion="colere" title="Colère">😡</button>
-            </div>
-            <p id="rating-message"></p>
-        </div>
-    </div>
+  <!-- Écran de fin -->
+  <div id="end-screen">
+      <h1>FIN</h1>
+      <button id="home-btn" onclick="location.reload()">🏠 Retour à l'Accueil</button>
 
-    <script src="script.js"></script>
+      <!-- Section de notation -->
+      <div id="rating-section">
+          <h2>Quelle émotion ressens-tu après cette histoire ?</h2>
+          <div id="emoji-rating">
+              <button class="emoji-btn" data-emotion="heureux" title="Heureux">😊</button>
+              <button class="emoji-btn" data-emotion="neutre" title="Neutre">😐</button>
+              <button class="emoji-btn" data-emotion="triste" title="Triste">😢</button>
+              <button class="emoji-btn" data-emotion="peur" title="Peur">😱</button>
+              <button class="emoji-btn" data-emotion="colere" title="Colère">😡</button>
+          </div>
+          <p id="rating-message"></p>
+      </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
