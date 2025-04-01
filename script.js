@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                     { text: "— Rien de tel que le sport pour se défouler, dit-il. Je t’ai préparé un parcours spécial 'Loup excité'. Prêt ?", image: "Joyeux.jpg" },
                 
-                    { text: "Et il fila comme une fusée. Derrière lui, Loup courait, sautait, rampait… Alfred s’arrêta au pied d’un arbre immense.", image: "Excité.jpg" },
+                    { text: "Et il fila comme une fusée. Derrière lui, Loup courait, sautait, rampait… Alfred s’arrêta au pied d’un arbre immense.", image: "Test.jpg" },
                 
-                    { text: "— On se retrouve en haut ! cria-t-il en disparaissant dans les feuillages.", image: "Excité.jpg" },
+                    { text: "— On se retrouve en haut ! cria-t-il en disparaissant dans les feuillages.", image: "Test.jpg" },
                 
                     { text: "Arrivé au sommet, Loup regarda en bas… Sa gorge se serra, son cœur se mit à cogner dans sa poitrine, ses jambes à trembler.", image: "Peur.jpg" },
                 
@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                     { text: "Les pattes pleines de farine, Gros Louis était avec Louve dans la cuisine.", image: "Neutre.jpg" },
                 
-                    { text: "— Ils ont l’air de bien s’amuser tous les deux…, pensa Loup, jaloux.", image: "Jaloux.jpg" },
+                    { text: "— Ils ont l’air de bien s’amuser tous les deux…, pensa Loup, jaloux.", image: "Colere.jpg" },
                 
                     { text: "— Salut Loup ! fit Gros Louis. Aujourd’hui, on prépare des macarons. Pour réussir ces gâteaux, il faut être très, très patient. Tiens, c’est un bon exercice pour toi, n’est-ce pas ?", image: "Joyeux.jpg" },
                 
-                    { text: "À ces mots, Louve éclata de rire.", image: "Rire.jpg" },
+                    { text: "À ces mots, Louve éclata de rire.", image: "Rires.jpg" },
                 
                     { text: "Loup sentit la moutarde lui monter au nez. Il devint tout rouge, tapa du pied et explosa :", image: "Colere.jpg" },
                 
@@ -80,36 +80,93 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                     { text: "Loup et Louve se regardèrent, des cœurs plein les yeux. Loup leva ses pattes : il se sentait léger, léger, léger ! Et… il était affamé !", image: "Joyeux.jpg" },
                 
-                    { text: "À table, mes amis, les macarons sont prêts !", image: "Rire.jpg" }
+                    { text: "À table, mes amis, les macarons sont prêts !", image: "Rires.jpg" }
             ],
             defaultBg: "bg-heureux"
         },
         story2: {
             steps: [
-                { text: "Il était une fois 3 petits cochons qui vivaient avec leur maman dans une petite maison. Un jour, leur mère les réunit et leur dit : \"Mes enfants, vous avez beaucoup grandi, et notre maison est bien trop petite pour nous maintenant. Demain, vous partirez pour construire chacun votre maison. Et surtout, faites bien attention au grand méchant loup\".", image: "Neutre.jpg" },
+                { text: "Once upon a time, there was a wolf who lived in a beautiful forest, surrounded by all his friends. His name was Wolf. But this wolf had a problem: he was too emotional. Happy, angry, sad, excited... his mood changed a hundred times a minute!", image: "Neutre.jpg" },
             
-                { text: "Le lendemain, ils s'embrassèrent tous et partirent. Nouf Nouf, le plus jeune et le plus paresseux, rencontra un paysan et lui demanda un peu de paille pour construire sa maison en quelques minutes. Nif Nif, le second, un peu moins paresseux, demanda du bois à un bûcheron et se construisit une maison en bois en quelques heures. Naf Naf, l'aîné et le plus travailleur, acheta des briques à un maçon et se construisit une solide maison de brique en plusieurs jours.", image: "Joyeux.jpg" },
+                { text: "So, when Wolf was in a joyful mood, he whistled with a light heart, cracked jokes, talked to the trees... He was bursting with energy and full of fun ideas!", image: "Joyeux.jpg" },
             
-                { text: "Ses frères qui avaient terminé bien avant lui, se moquaient de lui en rigolant et en jouant de la musique devant lui. Mais Naf Naf leur reprochait leur paresse et leur disait \"Nous verrons bien quand le loup viendra! Rira bien qui rira le dernier!\"", image: "Colere.jpg" },
-            
-                { text: "Quelques jours plus tard, un horrible et énorme grand méchant loup sortit de la forêt. Il vit d’abord la maison de Nouf Nouf et cria: \"Petit cochon, ouvre-moi ta porte ou je soufflerai, et ta maison s’envolera!\" \"Non, jamais de la vie\" dit Nouf Nouf en tremblant.", image: "Peur.jpg" },
-            
-                { text: "Alors le grand méchant loup remplit ses poumons et commença à souffler de toutes ses forces: \"Pfffffffffff Hoooo Pfffffffffffff!\" En quelques secondes, la maison s’envola.", image: "Vent.jpg" },
-            
-                { text: "Nouf Nouf, se mit à courir de toutes ses forces vers la cabane de son frère Nif Nif. Nif Nif lui ouvrit la porte juste à temps car ils entendirent rugir la voix du loup: \"Petits cochons! Petits cochons! Ouvrez-moi la porte!\" \"Non non!\" S’exclama Nif Nif. \"Nous ne t’ouvrirons pas!\" Le loup répondit: \"Puisque c’est comme ça, je vais souffler, souffler, souffler, et votre maison s’envolera.\"", image: "Peur.jpg" },
-            
-                { text: "Alors il gonfla sa poitrine et se mit à souffler de toutes ses forces: \"Pfffffffffff Hoooo Pfffffffffffff!\" La cabane résista un peu mais s’envola bien vite.", image: "Vent.jpg" },
-            
-                { text: "Nouf Nouf et Nif Nif se mirent à courir, courir, courir, en direction de la maison de briques de leur frère Naf Naf. Naf Naf les laissa entrer juste à temps. De grands coups retentirent à la porte. \"Boum Boum Boum\". C’était le loup. \"Petits cochons, petits cochons! Ouvrez-moi la porte ou je soufflerai, soufflerai, soufflerai, et votre maison s’envolera.\" \"Non\" dit Naf Naf, \"Nous ne t’ouvrirons pas.\"", image: "Peur.jpg" },
-            
-                { text: "Alors le Loup souffla de toutes ses forces: \"Pffffffffffffffffffffffffffffffffffffffffffffffffff!\" La maison ne bougea pas d’un pouce. Enragé, il souffla à nouveau: \"Pffffffffffffffffffffffffffffffffffffffffffffffffff!\" Mais la maison résista, solide comme un roc. Il souffla, souffla et souffla encore jusqu’à perdre haleine. \"Hufufufufufu\"", image: "Vent.jpg" },
-            
-                { text: "À bout de souffle, le grand méchant loup, chercha une autre idée pour entrer dans la maison. Il aperçut la cheminée sur le toit, commença à escalader le mur pour y descendre et attraper son repas.", image: "Peur.jpg" },
-            
-                { text: "Heureusement, Naf Naf, avait entendu les pas du loup sur le toit, et il avait mis rapidement une grande marmite d’eau chaude à bouillir sur le feu. Lorsque le grand méchant loup descendit par le conduit de la cheminée, il se brûla tellement fort, qu’il sauta à plusieurs mètres en passant par la cheminée en sens inverse. Il courut, courut, courut jusqu’à disparaître complètement. Et on ne le revit plus jamais dans la région.", image: "Joyeux.jpg" },
-            
-                { text: "Les trois petits cochons sortirent tout heureux de la maison de briques et se mirent à danser en rond en chantant: \"Qui a peur du grand méchant loup, c’est peut-être vous? C’est pas nous!\" Naf Naf put enfin se joindre à la flûte de Nouf Nouf et au violon de Nif Nif en les accompagnant gaiement sur son piano. Finalement, il invita ses frères à vivre dans sa maison en attendant qu’ils construisent chacun leur propre maison de brique.", image: "Joyeux.jpg" }
+                { text: "However, if something upset him… Oh no! He would frown, explode, and send everyone away!", image: "Colere.jpg" },
+                
+                { text: "— You need to learn to calm down, Wolf, said Master Owl one day, exasperated. You're making us dizzy!", image: "Colere.jpg" },
+                
+                { text: "— Learn to calm down? But why? asked Wolf.", image: "Colere.jpg" },
+                
+                { text: "— To be more peaceful! But don’t worry, we’ll help you… We start tomorrow!", image: "Colere.jpg" },
+                
+                { text: "The next day, Wolf went to his friend’s house.", image: "Neutre.jpg" },
+                
+                { text: "— To control your emotions, yoga is perfect! declared Master Owl. Breathe calmly and clear your mind.", image: "Neutre.jpg" },
+                
+                    { text: "Master Owl flowed through the poses: lotus, mountain… and Wolf tried to copy him. Oh dear! It wasn’t easy, but it was so funny! Unable to hold it in, Wolf burst out laughing.", image: "Rires.jpg" },
+                
+                    { text: "— Seems like yoga doesn’t work for you, sighed Master Owl.", image: "Question.jpg" },
+                
+                    { text: "Outside, Alfred was waiting impatiently for Wolf.", image: "Neutre.jpg" },
+                
+                    { text: "— Nothing beats sport to let off steam, he said. I’ve set up a special 'Excited Wolf' course. Ready?", image: "Joyeux.jpg" },
+                
+                    { text: "And off he shot like a rocket. Behind him, Wolf was running, jumping, crawling… Alfred stopped at the foot of a huge tree.", image: "Test.jpg" },
+                
+                    { text: "— See you at the top! he shouted as he disappeared into the leaves.", image: "Test.jpg" },
+                
+                    { text: "Once at the top, Wolf looked down… His throat tightened, his heart pounded in his chest, his legs trembled.", image: "Peur.jpg" },
+                
+                    { text: "— Alfred, I’m scared! he panicked. I’m going to fall!", image: "Peur.jpg" },
+                
+                    { text: "— Calm down, Wolf. I’m right here with you. We’ll climb down together, slowly.", image: "Peur.jpg" },
+                
+                    { text: "Wolf took a deep breath and, trembling all over, climbed down.", image: "Peur.jpg" },
+                
+                    { text: "— You’ve conquered your fear—you can be proud of yourself! Alfred congratulated him.", image: "Joyeux.jpg" },
+                
+                    { text: "Wolf smiled: oh yes, he was truly proud of himself!", image: "Joyeux.jpg" },
+                
+                    { text: "All this made me hungry, thought Wolf. That’s perfect—Big Louie is waiting for me.", image: "Neutre.jpg" },
+                
+                    { text: "Covered in flour, Big Louie was in the kitchen with Lona.", image: "Neutre.jpg" },
+                
+                    { text: "— They look like they’re having so much fun together…, thought Wolf, jealous.", image: "Colere.jpg" },
+                
+                    { text: "— Hi, Wolf! said Big Louie. Today we’re making macarons. To succeed with these treats, you have to be very, very patient. It's a great exercise for you, isn’t it?", image: "Joyeux.jpg" },
+                
+                    { text: "At these words, Lona burst out laughing.", image: "Rires.jpg" },
+                
+                    { text: "Wolf felt his temper rising. He turned red, stomped his foot and exploded:", image: "Colere.jpg" },
+                
+                    { text: "— That’s right, go ahead and make fun of me! he shouted, furious. I don’t care! I don’t even want to make stupid cookies with stupid people!", image: "Colere.jpg" },
+                
+                    { text: "Wolf stormed off, muttering under his breath and swiping angrily at the trees.", image: "Colere.jpg" },
+                
+                    { text: "Little by little, Wolf slowed down, until he was dragging his feet like a snail, his heart heavy. A tear rolled down his cheek.", image: "Triste.jpg" },
+                
+                    { text: "— I shouldn’t have gotten angry, he sniffled. Lona will never love me again… I feel so sad…", image: "Triste.jpg" },
+                
+                    { text: "— Hey, what’s wrong with my awesome buddy? came a voice behind him.", image: "Question.jpg" },
+                
+                    { text: "It was Miss Yeti. She gave him a big hug, then said:", image: "Bisous.jpg" },
+                
+                    { text: "— What’s done is done. Now you have to fix your mistake! Go see Big Louie and Lona and apologize. You’ll feel so much better afterward.", image: "Joyeux.jpg" },
+                
+                    { text: "— But what if Lona doesn’t forgive me? asked Wolf, worried.", image: "Peur.jpg" },
+                
+                    { text: "— Nothing ventured, nothing gained, replied Miss Yeti. Go on now!", image: "Joyeux.jpg" },
+                
+                    { text: "Feeling ashamed, Wolf went back and knocked on Big Louie’s door.", image: "Peur.jpg" },
+                
+                    { text: "— I’m sorry, my friends, he said. I didn’t mean what I said. It wasn’t kind.", image: "Peur.jpg" },
+                
+                { text: "— Apology accepted, smiled Lona.", image: "Joyeux.jpg" },
+                
+                { text: "Wolf and Lona looked at each other, hearts in their eyes. Wolf lifted his paws: he felt light, light, light! And… he was starving!", image: "Joyeux.jpg" },
+                
+                { text: "Let’s eat now —the macarons are ready!", image: "Rires.jpg" }
             ],
+                
             defaultBg: "bg-peur"
         }
     };
@@ -226,8 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         textBox.style.display = 'none';
         buttonContainer.style.display = 'none';
         endScreen.style.display = 'block';
-        progressCont.style.display = "none";
-    }
+    };
 
     emojiBtns.forEach(btn => {
         btn.addEventListener('click', function() {
