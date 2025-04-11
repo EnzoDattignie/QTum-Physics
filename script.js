@@ -1,4 +1,15 @@
+let currentStory = null;
+
 document.addEventListener('DOMContentLoaded', function() {
+
+document.querySelectorAll('.story-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const storyKey = btn.getAttribute('data-story');
+        currentStory = storyKey;
+        // Si tu as une fonction pour démarrer l’histoire, appelle-la ici, ex : startStory(storyKey)
+    });
+});
+
     const stories = {
         story1: {
             steps: [
