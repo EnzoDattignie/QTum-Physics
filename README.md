@@ -47,16 +47,18 @@ Our website should have been static but we made the choice to make dynamic with 
 
 ## Usage
 
-Open index.html in a browser.
+Open index.html with your browser of choice. You can usually just double click on the file.
 
-Interact with the interface to send commands to the QT robot.
+Choose a language, then if you want to change pages manually use the arrows. Otherwise press play for the "automatic" mode.
 
-Observe reactions and real-time displays.
+The story is splited into short passages for a smoother readablity.
+
+QT robot reactions are displayed in real time.
+
+At the end of the story, the user has the choice between 5 different emotions potentially felt by the reader. From that choice, the background color of the website change to a corresponding color.
+
+To start again the user can press the Home button. 
 
 ## Authors
 
 Project developed by the QT-Physics group.
-
-## License
-
-This project is distributed under the MIT License. You are free to use, modify, and redistribute it.
