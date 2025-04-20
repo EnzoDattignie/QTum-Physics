@@ -47,7 +47,9 @@ Our website should have been static but we made the choice to make dynamic with 
 
 ## Usage
 
+
 Open index.html with your browser of choice. You can usually just double click on the file.
+Explicative video (in french) to launch the project : https://youtu.be/f4abt0TV_w4
 
 Choose a language, then if you want to change pages manually use the arrows. Otherwise press play for the "automatic" mode.
 
